@@ -156,8 +156,8 @@ if __name__ == "__main__":
 	parser.add_argument('--id', type=str, default='TCP', help='Unique experiment identifier.')
 	parser.add_argument('--epochs', type=int, default=60, help='Number of train epochs.')
 	parser.add_argument('--lr', type=float, default=0.0001, help='Learning rate.')
-	parser.add_argument('--val_every', type=int, default=3, help='Validation frequency (epochs).')
-	parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
+	parser.add_argument('--val_every', type=int, default=5, help='Validation frequency (epochs).')
+	parser.add_argument('--batch_size', type=int, default=16, help='Batch size')
 	parser.add_argument('--logdir', type=str, default='log', help='Directory to log data to.')
 	parser.add_argument('--gpus', type=int, default=1, help='number of gpus')
 
