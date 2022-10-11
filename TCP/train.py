@@ -173,8 +173,8 @@ if __name__ == "__main__":
 	val_set = CARLA_Data(root=config.root_dir_all, data_folders=config.val_data,)
 	print(len(val_set))
 
-	dataloader_train = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, num_workers=8)
-	dataloader_val = DataLoader(val_set, batch_size=args.batch_size, shuffle=False, num_workers=8)
+	dataloader_train = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, num_workers=4)
+	dataloader_val = DataLoader(val_set, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
 	TCP_model = TCP_planner(config, args.lr)
 
