@@ -14,7 +14,8 @@ class GlobalConfig:
 	train_data, val_data = [], []
 	for town in train_towns:		
 		train_data.append(os.path.join(root_dir_all, town))
-		train_data.append(os.path.join(root_dir_all, town+'_addition'))
+		if os.path.exists(os.path.join(root_dir_all, town+'_addition')):
+			train_data.append(os.path.join(root_dir_all, town+'_addition'))
 	for town in val_towns:
 		val_data.append(os.path.join(root_dir_all, town+'_val'))
 
