@@ -4,6 +4,10 @@ FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu18.04
 # Just in case we need it
 ENV DEBIAN_FRONTEND noninteractive
 
+# NVIDIA NO PUBLIC 报错, ref: https://github.com/NVIDIA/nvidia-docker/issues/1632
+RUN rm /etc/apt/sources.list.d/cuda.list
+RUN rm /etc/apt/sources.list.d/nvidia-ml.list
+
 RUN apt update && apt install -y --no-install-recommends \
          git \
          curl \
@@ -33,7 +37,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 # change to conda env
 ENV PATH /opt/conda/envs/python37/bin:/opt/conda/envs/bin:$PATH
-RUN git clone https://github.com/Kin-Zhang/TCP.git /home/kin
+RUN git clone https://github.com/Kin-Zhang/TCP.git /home/kin/TCP
 WORKDIR /home/kin/TCP
 RUN /opt/conda/bin/conda env create -f environment.yml --name TCP
 

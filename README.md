@@ -4,9 +4,9 @@ Check origin repo from fork, here is for kin comparison
 
 ![teaser](assets/teaser_.png)
 
-## Docker
+## Docker and Dataset
 
-build docker
+### build docker
 
 ```
 git clone https://github.com/Kin-Zhang/TCP.git
@@ -14,18 +14,17 @@ cd TCP
 docker build -t zhangkin/tcp .
 ```
 
-run docker only for training, download their own dataset
-
-```bash
-docker run -it  --gpus all -v /dev/shm:/dev/shm -v /home/kin/DATA_HDD/tcp_data/tcp_carla_data:/home/kin/tcp/data --name kin_tcp zhangkin/tcp /bin/zsh
-```
-
-## Dataset
-
+### download dataset
 Download our dataset through [GoogleDrive](https://drive.google.com/file/d/1A6k0KpVHs5eSaqunzbRQR-p0b-915O9R/view?usp=sharing)
 transfuser to server:
 ```bash
 rsync -rvzc --progress -e 'ssh -p xx' --progress /home/kin/DATA_HDD/tcp_data/tcp_carla_data kinzhang@xx:~/data
+```
+### run docker
+run docker only for training, download their own dataset
+
+```bash
+docker run -it  --gpus all -v /dev/shm:/dev/shm -v /home/kin/DATA_HDD/tcp_data/tcp_carla_data:/home/kin/tcp/data --name kin_tcp zhangkin/tcp /bin/zsh
 ```
 
 ## Training
